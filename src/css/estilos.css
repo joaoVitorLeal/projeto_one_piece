@@ -1,0 +1,103 @@
+body {
+    background-color: #000000;
+    overflow: hidden;/* OBS oque tiver transformando por fora do body iremos esconder isso... neste caso tiramos a rolagem vertical*/
+}
+main::after{/* ccriando um pseudoelemento (pseudo estrutura) dpois do main pelo css*/
+    background-color: violet;
+
+    position: fixed;
+    left: 0;
+    top: 0;
+    min-height: 100vh;
+    width: 80vw;
+    background: linear-gradient(-233deg, #000 40%, rgba(0, 0, 0, 0) 65%)no-repeat; /*criando o degradê ..... rgba -> opacidade ....*/
+}
+
+main .personagem{
+     display: none; /*negando apresentação */
+     height: 100vh; /* altura para ocupar no dispositivo */
+
+}
+main .personagem.selecionado{
+    display: block;
+}
+
+main .personagem .imagem{
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* corrigi distorçoes na imagem(largura/altura) */
+}
+.conteudo {
+      /* background-color é o console.log() do JS*/
+    position: absolute; /* posicionarar um elemento(conteudo) de maneira absoluta, por cima de outros elementos*/
+    top: 0;/*propriedade do POSITION. pode ser deslocar o conteudo para cima, baixo, direita e esquerda*/
+    left: 120px;/*afastando 120 pixel para a esquerda*/
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;/*caso nao haja espaço para centralizar, nao havera ação*/
+    min-height: 100vh; /*conseguimos centralizar apos aumentar a altura com o MIN-HEIGHT, e depois é importante desfazer posterioarmentee no codio*/
+    max-width: 380px; /*ATENÇÃO PARA O MIN E O MAX*/
+
+    z-index: 1;/*prioridade de conteudo, jogando seus elementor por cima dos  outros */
+}
+.conteudo .nome_personagem {
+    /* background-color: green; */
+    color: #ffffff;
+    font-size: 48px; /*tamanho da fonte*/
+    font-family: "Secular One";
+    font-weight: 400; /*largura da linha (peso da fonte)*/
+    margin-bottom: 20px;/* espaçamento na margem entre elementos, BOTTOM significa que a margem sera em baixo*/
+
+}
+
+.conteudo .descricao{
+    /* background-color: blue; */
+    color: #ffffff;
+    font-family: "Rubik";
+    line-height: 24px;/* altura entre as linhas/// o padrao do programa é 16px*/
+
+}
+
+.conteudo .logo {
+    background-image: url("../imagens/one-piece-logo.png"); /* ' ../' -> para retornar uma pasta saimos do estilos.css para ir a raiz do index.html*/
+    background-size: cover; /* usa-se quando o backgroud é -IMAGE*/
+    height: 100px;
+    width: 230px;
+    margin-bottom: 35px;
+
+}
+
+.botoes {
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 180px;
+    justify-content: center;/*alinhamento vertical*/
+    align-items: center;/*alinhamento horizontal*/
+
+    gap: 10px;/* espaçaento utilizado quando utilizamos o DISPLAY: FLEX*/
+
+    background-color: rgba(0, 0, 0, 0.3);
+    
+}
+
+.botoes .botao{
+    border: none;
+    background: #000000;
+    cursor: pointer;
+    border-radius: 50%;/*OBS toda DIV é QUADRADA, para isto fizemos o arredondademento destas DIVS nao somente na IMG*/
+
+}
+.botoes .botao img {
+    border-radius: 50%;
+}
+/* OBS*/
+.botoes .botao.selecionado{
+    transform: scale(1.2);
+    box-shadow:0 0 10px #d9d9d9  ; /*sombra da borda do elemento*/
+}
